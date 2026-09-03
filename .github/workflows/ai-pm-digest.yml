@@ -1,0 +1,28 @@
+name: AI + PM Digest
+
+on:
+  schedule:
+    # 07:00 IST daily (01:30 UTC)
+    - cron: "30 1 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r tools/ai-pm-digest/requirements.txt
+
+      - name: Build and send digest
+        working-directory: tools/ai-pm-digest
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python digest.py
