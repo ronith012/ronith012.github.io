@@ -66,8 +66,10 @@ KEYWORDS = {
     },
 }
 
-# Only consider entries published within this many hours of the run.
-LOOKBACK_HOURS = 36
+# Only consider entries published within this many hours of the run. Kept
+# just above the ~12h gap between the two daily runs (7am/7pm) so the same
+# item isn't emailed twice.
+LOOKBACK_HOURS = 15
 
 # Entries scoring below this are dropped entirely.
 MIN_SCORE = 2
