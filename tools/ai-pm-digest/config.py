@@ -17,6 +17,7 @@ FEEDS = [
 
     # --- AI: news / analysis ---
     ("TechCrunch AI", "https://techcrunch.com/tag/artificial-intelligence/feed/", "ai", "normal"),
+    ("The Verge AI", "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "ai", "normal"),
     ("VentureBeat AI", "https://venturebeat.com/category/ai/feed/", "ai", "normal"),
     ("The Batch (DeepLearning.AI)", "https://www.deeplearning.ai/the-batch/feed/", "ai", "normal"),
     ("Simon Willison", "https://simonwillison.net/atom/everything/", "ai", "normal"),
@@ -60,9 +61,12 @@ KEYWORDS = {
         "growth": 1, "retention": 2, "activation": 1, "north star metric": 2,
         "experimentation": 1, "a/b test": 1, "onboarding": 1,
     },
+    # Weighted higher than the other topics: this is the overlap of your two
+    # core interests, so it should surface more readily than either alone.
     "AI in product management": {
-        "ai product": 3, "ai feature": 2, "ai pm": 3, "building with ai": 2,
-        "genai": 2, "generative ai": 2,
+        "ai product": 5, "ai feature": 4, "ai pm": 5, "building with ai": 4,
+        "genai": 4, "generative ai": 4, "ai roadmap": 5, "ai strategy": 4,
+        "ai adoption": 3, "shipping ai features": 4,
     },
 }
 
